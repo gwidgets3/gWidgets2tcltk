@@ -1,5 +1,5 @@
 Package: gWidgets2tcltk
-Version: 1.0-6
+Version: 1.0-7
 Title: Toolkit Implementation of gWidgets2 for tcltk
 Author: John Verzani
 Maintainer: John Verzani <jverzani@gmail.com>
@@ -63,4 +63,4 @@ Collate:
     'icons.R'
     'tk2tip.R'
     'zzz.R'
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
