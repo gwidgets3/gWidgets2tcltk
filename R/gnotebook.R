@@ -8,9 +8,9 @@ NULL
 ##' @rdname gWidgets2tcltk-undocumented
 ##' @method .gnotebook guiWidgetsToolkittcltk
 .gnotebook.guiWidgetsToolkittcltk <-  function(toolkit,
-                                               tab.pos = 3, 
+                                               tab.pos = 3,
                                                container = NULL, ... ) {
-  GNotebook$new(toolkit, tab.pos, 
+  GNotebook$new(toolkit, tab.pos,
                     container = container, ...)
 }
 
@@ -19,7 +19,7 @@ NULL
 GNotebook <- setRefClass("GNotebook",
                             contains="GContainer",
                             methods=list(
-                              initialize=function(toolkit=NULL, tab.pos=3, 
+                              initialize=function(toolkit=NULL, tab.pos=3,
                                  container=NULL, ...) {
 
 
@@ -28,26 +28,30 @@ GNotebook <- setRefClass("GNotebook",
                                 ## tab placement: 1,2,3,4 -> 3,0,2,1
                                 if(tab.pos !=3)
                                  message(gettext("tab.pos is not implemented\n"))
-                                
-                                
+
+
                                 initFields(block=widget)
 
-                                
+
                                 add_to_parent(container, .self, ...)
 
                                 callSuper(toolkit)
                               },
                               add_child=function(child, label="", index,  ...) {
                                 "Add child. Can pass index value in case we want to replace"
-                                do_insert <- !(is.null(index) || missing(index) || index > get_length() || index < 1)
+				print("XXX")
+				print(index)
+                                do_insert <- !(is.null(index) || missing(index) || index > get_length() || index < 1 || index==TRUE)
 
                                 child$set_parent(.self)
                                 if(do_insert) {
+				print("do_insert")
                                   children[[index]] <<- child
                                   tcl(widget, "forget", index - 1)
-                                  tcl(widget, "insert", index -1, child$get_block())
+                                  tcl(widget, "insert", index - 1, child$get_block())
                                 } else {
                                   ## aooebd
+				  print("no insert")
                                   index <- get_length() + 1
                                   children <<- c(children, child)
                                   tcl(widget, "add", child$get_block())
@@ -64,7 +68,7 @@ GNotebook <- setRefClass("GNotebook",
                               set_value=function(value, ...) {
                                 old_value <- get_index()
                                 value <- max(1,min(value,get_length()))
-                                
+
                                 tcl(widget,"select",value - 1) # 0 -based
                                 if(value != old_value)
                                   invoke_handler("<<NotebookTabChanged>>")
@@ -131,4 +135,3 @@ GNotebook <- setRefClass("GNotebook",
                                 add_handler("<<NotebookTabChanged>>", handler, action, decorator=decorator)
                               }
                               ))
-

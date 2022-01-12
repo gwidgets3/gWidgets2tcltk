@@ -58,7 +58,7 @@ GToolBar <- setRefClass("GToolBar",
                                        horizontal=TRUE
                                        )
                             set_spacing(0)
-                            
+
 
                             add_toolbar_items(toolbar.list)
 
@@ -83,7 +83,7 @@ GToolBar <- setRefClass("GToolBar",
                             "Helper to add a gaction item"
                             btn <- gbutton(action=obj, container=widget, expand=FALSE)
                             style_map <- list("both"="center", "icons"="image", "text"="text", "both-horiz"="left")
-                            tkconfigure(btn$widget, compound=style_map[style], style="Toolbutton")
+			    tkconfigure(btn$widget, compound=style_map[[style]], style="Toolbutton")
                           },
                           add_gseparator_toolitem=function() {
                             "Helper to add a separator"
@@ -102,4 +102,3 @@ GToolBar <- setRefClass("GToolBar",
                             add_toolbar_items(value)
                           }
                           ))
-
