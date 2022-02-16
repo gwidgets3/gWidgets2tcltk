@@ -39,8 +39,6 @@ GNotebook <- setRefClass("GNotebook",
                               },
                               add_child=function(child, label="", index,  ...) {
                                 "Add child. Can pass index value in case we want to replace"
-				print("XXX")
-				print(index)
                                 do_insert <- !(is.null(index) || missing(index) || index > get_length() || index < 1 || index==TRUE)
 
                                 child$set_parent(.self)
