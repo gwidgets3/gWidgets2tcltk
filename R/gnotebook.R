@@ -39,19 +39,15 @@ GNotebook <- setRefClass("GNotebook",
                               },
                               add_child=function(child, label="", index,  ...) {
                                 "Add child. Can pass index value in case we want to replace"
-				print("XXX")
-				print(index)
                                 do_insert <- !(is.null(index) || missing(index) || index > get_length() || index < 1 || index==TRUE)
 
                                 child$set_parent(.self)
                                 if(do_insert) {
-				print("do_insert")
                                   children[[index]] <<- child
                                   tcl(widget, "forget", index - 1)
                                   tcl(widget, "insert", index - 1, child$get_block())
                                 } else {
                                   ## aooebd
-				  print("no insert")
                                   index <- get_length() + 1
                                   children <<- c(children, child)
                                   tcl(widget, "add", child$get_block())
