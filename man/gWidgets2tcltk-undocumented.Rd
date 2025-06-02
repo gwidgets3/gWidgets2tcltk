@@ -375,7 +375,7 @@ coming from:
 
 \item{offspring.col}{integer or column name. Points to column containing logical values indicating if a row has offspring.}
 
-\item{visible}{logical. If code{TRUE} window is drawn when
+\item{visible}{logical. If \code{TRUE} window is drawn when
 constructed. Otherwise, window can be drawn later using
 \code{visible<-}. This value can default to \code{FALSE} by
 setting the option:
@@ -478,7 +478,7 @@ return stock id
 return stock id from object
 }
 \seealso{
-The documentation for this is found at \code{\link{gbutton}}.
+The documentation for this is found at \code{gbutton}.
 
-The documentation for this is found at \code{\link{gprogressbar}}.
+The documentation for this is found at \code{gprogressbar}.
 }

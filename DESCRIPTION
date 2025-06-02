@@ -1,9 +1,13 @@
 Package: gWidgets2tcltk
 Version: 1.0-9
 Title: Toolkit Implementation of gWidgets2 for tcltk
-Author: John Verzani
+Authors@R:
+  c(person(given = "John",
+                    family = "Verzani",
+                    role = c("aut", "cre"),
+                    email = "jverzani@gmail.com"))
 Maintainer: John Verzani <jverzani@gmail.com>
-URL: https://github.com/jverzani/gWidgets2tcltk
+URL: https://github.com/gwidgets3/gWidgets2tcltk/
 Depends:
     R (>= 2.12.0),
     methods,
