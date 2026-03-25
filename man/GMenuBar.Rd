@@ -30,9 +30,9 @@ l <- list(file=gaction("file", handler=function(h,...) print("file"),
           radio=list(
             rb=gradio(state.name[1:3], parent=w, handler=function(h,...)
                print(h$obj$get_value()))
-            )
+            ),
           sep=gseparator(vertical=TRUE),
-          ,cb=gcheckbox("really", parent=w, handler=function(h,...) print(h$obj$get_value()))
+          cb=gcheckbox("really", parent=w, handler=function(h,...) print(h$obj$get_value()))
           )
 mlist <- list(File=l)
 mb <- gmenu(mlist, cont=w)
